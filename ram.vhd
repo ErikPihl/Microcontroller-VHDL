@@ -51,7 +51,7 @@ begin
       if (reset_s2_n = '0') then
          data <= (others => (others => '0'));
       elsif (rising_edge(clock)) then
-         if (address_in_range = '1') then
+         if (address_in_range = '1' and write_enable = '1') then
             data(uint8(address)) <= data_in;
          end if;
       end if;
